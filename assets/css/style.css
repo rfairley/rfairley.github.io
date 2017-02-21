@@ -1,1 +1,468 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
+/*======== END RESET ========*/
+
+.body-bg {
+  background: url("../img/textures/brushed-alum.png");
+  background-color: #d4fffb;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.splash {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-height: 400px;
+  margin: 0 0 24px 0;
+  padding: 0;
+  filter: blur(0px) brightness(1);
+}
+
+.splash-box {
+  position: relative; /*for some reason declaring this makes overlay work properly*/
+  overflow: hidden;
+  display: block;
+  width: 100%;
+}
+
+.splash-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.splash-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #111111;
+  background-image: url("../img/textures/diagmonds-light.png");
+  background-position: 0 0;
+  opacity: 0.3;
+  filter: brightness(0.7);
+}
+
+.overlay-cap {
+  position: absolute;
+  bottom: 12%;
+  left: 5%;
+  background: rgba(0,0,0,0.8);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.splash-box h3 {
+  color: #fafafa;
+  font-family: "Consolas", sans-serif;
+  font-size: 18px;
+}
+
+.feature {
+  text-align: center;
+  padding: 24px 10%;
+  min-height: 40vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-image: url("../img/textures/axiom-pattern.png");
+  background-position: 0 0;
+}
+
+.flex-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#hello {
+  background-color: #c3dcff;
+}
+
+#experience {
+  background-color: #181818;
+}
+
+#projects {
+  background-color: #15002b;
+}
+
+#contact {
+  background-color: #eaeaea;
+}
+
+nav.top-nav {
+  position: relative; /*use js to change to fixed and inline blocks later*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+nav.top-nav .logo {
+  display: flex;
+  flex: 1;
+  margin: 24px 8px;
+  width: 100%;
+  text-align: left;
+}
+
+@media all and (min-width: 640px) {
+  nav.top-nav .logo {
+    text-align: center;
+  }
+}
+
+.logo-title {
+  margin: 0 8px 0 0;
+  display: inline-block;
+  flex: 1;
+}
+
+.logo-title a {
+  display: block;
+}
+
+nav.top-nav ul.page-links {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  margin: 4px 0 4px 0;
+}
+
+nav.top-nav ul.page-links li {
+  display: flex;
+  flex: 1;
+  background-color: #333333;
+  margin: 0 2px 0 0;
+  transition: background-color 0.25s ease 0.05s;
+}
+
+nav.top-nav ul.page-links li:last-child {
+  margin: 0; /*remove extra space at end*/
+}
+
+nav.top-nav ul.page-links li a {
+  margin: 0 auto;
+  color: #fafafa;
+  font-family: 'Consolas', sans-serif;
+  font-size: 18px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+/*======== BEGIN FIXED NAV ========*/
+
+nav.fixed-nav {
+  position: fixed;
+  width: 100%;
+  display: none;
+  z-index: 1000;
+  top: 0;
+  transition: top 0.32s cubic-bezier(.16,.62,.4,.86), background-position 0.32s cubic-bezier(.44,.62,.4,.86);
+  background-image: linear-gradient(#0e0e0e, #111111); /*background is image so can have "lagging" navbar background*/
+  background-size: 100% 56px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+nav.fixed-nav .logo {
+  display: inline-block;
+  margin: 8px 0 8px 0;
+}
+
+nav.fixed-nav ul.page-links {
+  display: inline-block;
+  margin: 4px 0 4px 0;
+  float: right;
+}
+
+nav.fixed-nav ul.page-links li {
+  display: inline-block;
+  background: #333333;
+  margin: 0 2px 0 0;
+  border-radius: 4px;
+  transition: background 0.25s ease 0.05s;
+}
+
+nav.fixed-nav ul.page-links li:hover {
+  background: #777777;
+}
+
+nav.fixed-nav ul.page-links li:last-child {
+  margin: 0 8px 0 0;
+}
+
+nav.fixed-nav ul.page-links li a {
+  display: block;
+  margin: 0 auto;
+  padding: 16px 4px;
+  font-family: "Consolas", sans-serif;
+  font-size: 16px;
+  color: #fafafa;
+}
+
+nav.top-nav ul.page-links li:hover {
+  background-color: #060072;
+}
+
+nav.top-nav .logo h1 {
+  font-family: 'Consolas', sans-serif;
+  color: #131313;
+  font-size: 16px;
+  white-space: nowrap;
+  margin: 0 auto;
+  line-height: 24px;
+}
+
+@media all and (min-width: 420px) {
+  nav.top-nav .logo h1 {
+    font-size: 24px;
+  }
+  nav.fixed-nav {
+    display: block;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+}
+
+nav.top-nav .logo ul.social-icons {
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+nav.top-nav .logo ul.social-icons li {
+  display: inline-block;
+}
+
+nav.top-nav .logo ul.social-icons li a {
+  margin: 0 20px 0 0;
+}
+
+.feature-content {
+  margin: auto;
+  width: 100%;
+  display: inline-block
+}
+
+.feature h2 {
+  font-family: "Consolas", sans-serif;
+  font-size: 36px;
+  margin: 24px 0;
+}
+
+.feature h4 {
+  font-family: "Consolas", sans-serif;
+  font-size: 24px;
+  margin: 16px 0;
+}
+
+.feature p {
+  font-family: "Verdana", sans-serif;
+  font-size: 15px;
+  margin: 8px 0;
+  line-height: 17px;
+}
+
+#contact ul li a {
+  font-family: "Verdana", sans-serif;
+  font-size: 18px;
+  margin: 8px 0;
+  line-height: 24px;
+}
+
+.textcolor-light {
+  color: #eaeaea;
+}
+
+.textcolor-dark {
+  color: #0a0a0a;
+}
+
+.nav-icon {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+footer {
+  width: 100%;
+  padding: 8px 10%;
+  margin: 0;
+  background: #444444;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+footer hr {
+  width: 100%;
+  border-color: #bbbbbb;
+}
+
+footer p {
+  font-family: "Verdana", sans-serif;
+  font-size: 13px;
+  color: #eaeaea;
+}
+
+ul.project-box {
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  max-height: 800px;
+  background: #cccccc;
+  margin: 32px 0;
+}
+
+ul.project-box li {
+  display: flex;
+  padding: 0;
+  margin: 2px;
+  position: relative;
+}
+
+ul.project-box li a {
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.project-img {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+ul.project-box li h3 {
+  position: absolute; 
+  bottom: 5%; 
+  left: 3%;
+  right: 3%;
+  width: auto;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  font-family: "Consolas", sans-serif;
+  font-size: 22px;
+  color: #fafafa;
+  border-radius: 8px;
+}
+
+.tint {
+  position: relative;
+  display: inline-block;
+}
+.tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all .25s ease 0.05s;
+}
+.tint:hover:before {
+  background: rgba(255, 255, 255, 0.2);
+}
+.tint-1:before {
+  background: rgba(102, 140, 255, 0.1);
+}
+.tint-2:before {
+  background: rgba(255, 77, 77, 0.1);
+}
+.tint-3:before {
+  background: rgba(77, 255, 121, 0.1);
+}
+.tint-4:before {
+  background: rgba(255, 255, 102, 0.1);
+}
+.hover-grow {
+  -webkit-transform: scale(1,1);
+  -webkit-transition: transform 0.2s ease 0.1s;
+  transform: scale(1,1);
+  transition: transform 0.2s ease 0.1s;
+}
+
+.hover-grow:hover {
+  -webkit-transform: scale(1.15, 1.15);
+  transform: scale(1.15, 1.15);
+  color: #eeeeee;
+}
+
+.main-link {
+  color: #00b410;
+}
+
+.main-link:hover {
+  color: #65ff73;
+}
+
+.subtle-link:hover {
+  color: #7e7e7e;
+}
