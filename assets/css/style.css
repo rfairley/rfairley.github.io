@@ -204,7 +204,6 @@ nav.top-nav .logo {
   display: flex;
   flex: 1;
   margin: 24px 8px;
-  width: 100%;
   text-align: left;
 }
 nav.top-nav ul.page-links {
@@ -267,6 +266,7 @@ nav.fixed-nav {
   display: none;
   z-index: 1000;
   top: 0;
+  left: 0;
   transition: top 0.32s cubic-bezier(.16,.62,.4,.86), background-position 0.32s cubic-bezier(.44,.62,.4,.86);
   background-image: linear-gradient(#0e0e0e, #111111); /*background is image so can have "lagging" navbar background*/
   background-size: 100% 56px;
