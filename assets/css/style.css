@@ -1,3 +1,4 @@
+/*====== CSS Properties Reset ======*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -42,7 +43,7 @@ table {
   border-spacing: 0;
 }
 
-/*======== END RESET ========*/
+/*====== General ======*/
 
 .body-bg {
   background: url("../img/textures/brushed-alum.png");
@@ -51,6 +52,42 @@ table {
   background-repeat: repeat;
   background-position: center;
 }
+.logo-title {
+  margin: 0 8px 0 0;
+  display: inline-block;
+  flex: 1;
+}
+.logo-title a {
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+}
+.nav-icon {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+.textcolor-light {
+  color: #eaeaea;
+}
+.textcolor-dark {
+  color: #0a0a0a;
+}
+.main-link {
+  color: #00b410;
+}
+.main-link:hover {
+  color: #65ff73;
+}
+.subtle-link:hover {
+  color: #7e7e7e;
+}
+
+/*====== Splash Rules ======*/
 
 .splash {
   overflow: hidden;
@@ -62,14 +99,12 @@ table {
   padding: 0;
   filter: blur(0px) brightness(1);
 }
-
 .splash-box {
   position: relative; /*for some reason declaring this makes overlay work properly*/
   overflow: hidden;
   display: block;
   width: 100%;
 }
-
 .splash-img {
   width: 100%;
   height: auto;
@@ -77,7 +112,6 @@ table {
   margin: 0;
   padding: 0;
 }
-
 .splash-overlay {
   position: absolute;
   height: 100%;
@@ -90,7 +124,6 @@ table {
   opacity: 0.3;
   filter: brightness(0.7);
 }
-
 .overlay-cap {
   position: absolute;
   bottom: 12%;
@@ -99,12 +132,13 @@ table {
   border-radius: 8px;
   padding: 8px;
 }
-
 .splash-box h3 {
   color: #fafafa;
   font-family: "Consolas", sans-serif;
   font-size: 18px;
 }
+
+/*====== Feature (separate sections on main page) ======*/
 
 .feature {
   text-align: center;
@@ -118,36 +152,54 @@ table {
   background-image: url("../img/textures/axiom-pattern.png");
   background-position: 0 0;
 }
-
-.flex-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
 #hello {
   background-color: #c3dcff;
 }
-
 #experience {
   background-color: #181818;
 }
-
 #projects {
   background-color: #15002b;
 }
-
 #contact {
   background-color: #eaeaea;
 }
+.feature-content {
+  margin: auto;
+  width: 100%;
+  display: inline-block
+}
+.feature h2 {
+  font-family: "Consolas", sans-serif;
+  font-size: 36px;
+  margin: 24px 0;
+}
+.feature h4 {
+  font-family: "Consolas", sans-serif;
+  font-size: 24px;
+  margin: 16px 0;
+}
+.feature p {
+  font-family: "Verdana", sans-serif;
+  font-size: 15px;
+  margin: 8px 0;
+  line-height: 17px;
+}
+#contact ul li a {
+  font-family: "Verdana", sans-serif;
+  font-size: 18px;
+  margin: 8px 0;
+  line-height: 24px;
+}
+
+/*====== Top navigation bar ======*/
 
 nav.top-nav {
-  position: relative; /*use js to change to fixed and inline blocks later*/
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-
 nav.top-nav .logo {
   display: flex;
   flex: 1;
@@ -155,30 +207,12 @@ nav.top-nav .logo {
   width: 100%;
   text-align: left;
 }
-
-@media all and (min-width: 640px) {
-  nav.top-nav .logo {
-    text-align: center;
-  }
-}
-
-.logo-title {
-  margin: 0 8px 0 0;
-  display: inline-block;
-  flex: 1;
-}
-
-.logo-title a {
-  display: block;
-}
-
 nav.top-nav ul.page-links {
   display: flex;
   flex: 1;
   flex-direction: row;
   margin: 4px 0 4px 0;
 }
-
 nav.top-nav ul.page-links li {
   display: flex;
   flex: 1;
@@ -186,11 +220,9 @@ nav.top-nav ul.page-links li {
   margin: 0 2px 0 0;
   transition: background-color 0.25s ease 0.05s;
 }
-
 nav.top-nav ul.page-links li:last-child {
   margin: 0; /*remove extra space at end*/
 }
-
 nav.top-nav ul.page-links li a {
   margin: 0 auto;
   color: #fafafa;
@@ -200,8 +232,34 @@ nav.top-nav ul.page-links li a {
   text-align: center;
   vertical-align: baseline;
 }
+nav.top-nav .logo ul.social-icons {
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 12px;
+}
+nav.top-nav .logo ul.social-icons li {
+  display: inline-block;
+}
+nav.top-nav .logo ul.social-icons li a {
+  margin: 0 20px 0 0;
+}
+nav.top-nav ul.page-links li:hover {
+  background-color: #060072;
+}
+nav.top-nav .logo h1 {
+  font-family: 'Consolas', sans-serif;
+  color: #131313;
+  font-size: 16px;
+  white-space: nowrap;
+  margin: 0 auto;
+  line-height: 24px;
+}
 
-/*======== BEGIN FIXED NAV ========*/
+/*======== Fixed navigation bar ========*/
 
 nav.fixed-nav {
   position: fixed;
@@ -215,18 +273,15 @@ nav.fixed-nav {
   background-position: 0 0;
   background-repeat: no-repeat;
 }
-
 nav.fixed-nav .logo {
   display: inline-block;
   margin: 8px 0 8px 0;
 }
-
 nav.fixed-nav ul.page-links {
   display: inline-block;
   margin: 4px 0 4px 0;
   float: right;
 }
-
 nav.fixed-nav ul.page-links li {
   display: inline-block;
   background: #333333;
@@ -234,15 +289,12 @@ nav.fixed-nav ul.page-links li {
   border-radius: 4px;
   transition: background 0.25s ease 0.05s;
 }
-
 nav.fixed-nav ul.page-links li:hover {
   background: #777777;
 }
-
 nav.fixed-nav ul.page-links li:last-child {
   margin: 0 8px 0 0;
 }
-
 nav.fixed-nav ul.page-links li a {
   display: block;
   margin: 0 auto;
@@ -252,98 +304,7 @@ nav.fixed-nav ul.page-links li a {
   color: #fafafa;
 }
 
-nav.top-nav ul.page-links li:hover {
-  background-color: #060072;
-}
-
-nav.top-nav .logo h1 {
-  font-family: 'Consolas', sans-serif;
-  color: #131313;
-  font-size: 16px;
-  white-space: nowrap;
-  margin: 0 auto;
-  line-height: 24px;
-}
-
-@media all and (min-width: 420px) {
-  nav.top-nav .logo h1 {
-    font-size: 24px;
-  }
-  nav.fixed-nav {
-    display: block;
-  }
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  height: 100%;
-  width: 100%;
-}
-
-nav.top-nav .logo ul.social-icons {
-  display: inline-block;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: #ffffff;
-  border-radius: 4px;
-  padding: 12px;
-}
-
-nav.top-nav .logo ul.social-icons li {
-  display: inline-block;
-}
-
-nav.top-nav .logo ul.social-icons li a {
-  margin: 0 20px 0 0;
-}
-
-.feature-content {
-  margin: auto;
-  width: 100%;
-  display: inline-block
-}
-
-.feature h2 {
-  font-family: "Consolas", sans-serif;
-  font-size: 36px;
-  margin: 24px 0;
-}
-
-.feature h4 {
-  font-family: "Consolas", sans-serif;
-  font-size: 24px;
-  margin: 16px 0;
-}
-
-.feature p {
-  font-family: "Verdana", sans-serif;
-  font-size: 15px;
-  margin: 8px 0;
-  line-height: 17px;
-}
-
-#contact ul li a {
-  font-family: "Verdana", sans-serif;
-  font-size: 18px;
-  margin: 8px 0;
-  line-height: 24px;
-}
-
-.textcolor-light {
-  color: #eaeaea;
-}
-
-.textcolor-dark {
-  color: #0a0a0a;
-}
-
-.nav-icon {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-}
+/*====== Footer ======*/
 
 footer {
   width: 100%;
@@ -353,17 +314,17 @@ footer {
   box-sizing: border-box;
   text-align: left;
 }
-
 footer hr {
   width: 100%;
   border-color: #bbbbbb;
 }
-
 footer p {
   font-family: "Verdana", sans-serif;
   font-size: 13px;
   color: #eaeaea;
 }
+
+/*====== Project box ======*/
 
 ul.project-box {
   display: flex;
@@ -378,27 +339,23 @@ ul.project-box {
   background: #cccccc;
   margin: 32px 0;
 }
-
 ul.project-box li {
   display: flex;
   padding: 0;
   margin: 2px;
   position: relative;
 }
-
 ul.project-box li a {
   display: block;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 .project-img {
   margin: 0;
   padding: 0;
   display: block;
 }
-
 ul.project-box li h3 {
   position: absolute; 
   bottom: 5%; 
@@ -412,6 +369,8 @@ ul.project-box li h3 {
   color: #fafafa;
   border-radius: 8px;
 }
+
+/*====== General effects ======*/
 
 .tint {
   position: relative;
@@ -448,21 +407,24 @@ ul.project-box li h3 {
   transform: scale(1,1);
   transition: transform 0.2s ease 0.1s;
 }
-
 .hover-grow:hover {
   -webkit-transform: scale(1.15, 1.15);
   transform: scale(1.15, 1.15);
   color: #eeeeee;
 }
 
-.main-link {
-  color: #00b410;
-}
+/*====== Media queries for responsiveness ======*/
 
-.main-link:hover {
-  color: #65ff73;
+@media all and (min-width: 640px) {
+  nav.top-nav .logo {
+    text-align: center;
+  }
 }
-
-.subtle-link:hover {
-  color: #7e7e7e;
+@media all and (min-width: 420px) {
+  nav.top-nav .logo h1 {
+    font-size: 24px;
+  }
+  nav.fixed-nav {
+    display: block;
+  }
 }
