@@ -1,5 +1,5 @@
 // Define relative speeds of parallax items
-var velocitySplash = 0.4;
+var velocitySplashCap = 0.2;
 var velocityOverlay = 0.7;
 var velocityBackground = 0.2;
 var numberOfSplashImages = 8;
@@ -42,11 +42,14 @@ $(document).ready(function() {
   
   // Load random cover image in splash box and print to HTML
   $(function () {
-    document.getElementById('front-splash-box').innerHTML = '';
+    document.getElementById('front-splash').innerHTML = '';
     var splashImgHtml = '';
-    splashImgHtml += '<img class="splash-img" src="assets/img/splash/cover-' + randomNumber + '.jpg" alt="' + splashAlt[randomNumber-1]+ '" width="1200" height="377"/>';
+    splashImgHtml += '<div class="splash-box" id="front-splash-box">';
+    splashImgHtml += '  <img class="splash-img" src="assets/img/splash/cover-' + randomNumber + '.jpg" alt="' + splashAlt[randomNumber-1]+ '" width="1200" height="377"/>';
+    splashImgHtml += '</div>';
     splashImgHtml += '<h3 class="overlay-cap">' + splashCap[randomNumber-1] + '</h3>';
-    $('#front-splash-box').append(splashImgHtml);
+    splashImgHtml += '<div class="splash-overlay" id="front-splash-overlay"></div>';
+    $('#front-splash').append(splashImgHtml);
   });
   
   // Slow scrolling to id location when anchors are clicked
@@ -86,14 +89,10 @@ $(document).ready(function() {
   $(function () {
     $(document).on('scroll', function () {
       var pos = $(window).scrollTop();
-      var height = $('#front-splash-box .splash-img').height();
-      $('#front-splash-box').css('height', (height - pos * velocitySplash) + 'px');
+      $('.overlay-cap').css('bottom', 'calc(12% + ' + (pos * velocitySplashCap) + 'px)');
       $('#front-splash-overlay').css('background-position', '0 ' + ((-pos) * velocityOverlay) + 'px');
       $('#front-splash').css('filter', 'blur(' + (pos * 0.01) + 'px) brightness('+ (1 - pos * 0.0015) + ')');
       $('.feature').css('background-position', '0 ' + ((pos) * velocityBackground) + 'px');
-    });
-    $(window).on('resize', function () {
-      $('#front-splash-box').css('height', $('#front-splash-box .splash-img').height() + 'px'); // Clean up after setting height previously
     });
   });
 });
