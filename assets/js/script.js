@@ -2,7 +2,7 @@
 var velocitySplashCap = 0.2;
 var velocityOverlay = 0.7;
 var velocityBackground = 0.2;
-var numberOfSplashImages = 8;
+var numberOfSplashImages = 9;
 
 // Useful properties to store and refer to (avoid hardcoding these values in .js)
 var fixedNavHeight = $('nav.fixed-nav').height();
@@ -22,6 +22,7 @@ var splashAlt = [
   'tower bridge london',
   'lakeside toronto',
   'waterfront seattle'
+  'glenmore reservoir calgary'
 ];
 var splashCap = [
   'Queensferry Crossing<br>Scotland, 2015',
@@ -31,7 +32,8 @@ var splashCap = [
   'University Avenue<br>Toronto, 2015',
   'Tower Bridge<br>London, 2015',
   'Lakeside<br>Toronto, 2016',
-  'Waterfront<br>Seattle, 2016'
+  'Waterfront<br>Seattle, 2016',
+  'Glenmore Reservoir<br>Calgary, 2015'
 ];
 
 // Initially hide the fixed navigation bar out of the screen
@@ -39,7 +41,7 @@ $('nav.fixed-nav').css('top', '-' + fixedNavHeight + 'px');
 
 // Functions to execute repetitively when the document is ready
 $(document).ready(function() {
-  
+
   // Load random cover image in splash box and print to HTML
   $(function () {
     document.getElementById('front-splash').innerHTML = '';
@@ -51,7 +53,7 @@ $(document).ready(function() {
     splashImgHtml += '<div class="splash-overlay" id="front-splash-overlay"></div>';
     $('#front-splash').append(splashImgHtml);
   });
-  
+
   // Slow scrolling to id location when anchors are clicked
   $('nav a, .feature h2 a').click(function(){
     if ($("html, body").is(":animated")) {
@@ -64,7 +66,7 @@ $(document).ready(function() {
       $('nav.fixed-nav').css('background-position', '0 0');
     });
   });
-  
+
   // Define fixed navigation bar movements relative to scrolling
   $(function () {
     var currentPos = $(window).scrollTop();
@@ -84,7 +86,7 @@ $(document).ready(function() {
       currentPos = pos;
     });
   });
-  
+
   // Define parallax behaviour for splash images and textures
   $(function () {
     $(document).on('scroll', function () {
