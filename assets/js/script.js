@@ -21,7 +21,7 @@ var splashAlt = [
   'university avenue toronto',
   'tower bridge london',
   'lakeside toronto',
-  'waterfront seattle'
+  'waterfront seattle',
   'glenmore reservoir calgary'
 ];
 var splashCap = [
