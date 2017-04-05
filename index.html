@@ -9,6 +9,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
+  
 </head>
 
 <body class="body-bg">
@@ -19,6 +36,7 @@
       <ul class="social-icons">
         <li><a href="https://github.com/rfairley"><img src="assets/img/social/github.png" alt="GitHub" height="32" width="32"/></a></li>
         <li><a href="https://www.linkedin.com/in/robertfairley"><img src="assets/img/social/linkedin.png" alt="LinkedIn" height="34" width="45"/></a></li>
+        <li><a href="https://www.twitter.com/robtfair"><img src="assets/img/social/twitter.png" alt="Twitter" height="32" width="32"/></a></li>
       </ul>
     </div>
     <ul class="page-links">
@@ -89,7 +107,9 @@
         <li><a class="textcolor-dark subtle-link" href="mailto:rob.t.fairley@gmail.com">rob.t.fairley@gmail.com</a></li>
         <li><a class="textcolor-dark subtle-link" href="https://www.linkedin.com/in/robertfairley">LinkedIn</a></li>
         <li><a class="textcolor-dark subtle-link" href="https://github.com/rfairley">GitHub</a></li>
+        <li><a class="textcolor-dark subtle-link" href="https://twitter.com/robtfair">Twitter</a></li>
       </ul>
+      <div class="twitter-box"><a class="twitter-timeline" data-height="400" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/robtfair">Tweets by robtfair</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
     </div>
   </section>
 
@@ -100,6 +120,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="assets/js/script.js" type="text/javascript"></script>
+  
 </body>
 
 </html>
