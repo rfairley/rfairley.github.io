@@ -245,7 +245,7 @@ nav.top-nav .logo ul.social-icons li {
   display: inline-block;
 }
 nav.top-nav .logo ul.social-icons li a {
-  margin: 0 20px 0 0;
+  margin: 0 12px 0 12px;
 }
 nav.top-nav ul.page-links li:hover {
   background-color: #060072;
@@ -414,14 +414,21 @@ ul.project-box li h3 {
   color: #eeeeee;
 }
 
+/*====== Miscellaneous ======*/
+
+.twitter-box {
+  max-width: 600px;
+  margin: 32px auto 0 auto;
+}
+
 /*====== Media queries for responsiveness ======*/
 
-@media all and (min-width: 640px) {
+@media all and (min-width: 680px) {
   nav.top-nav .logo {
     text-align: center;
   }
 }
-@media all and (min-width: 420px) {
+@media all and (min-width: 440px) {
   nav.top-nav .logo h1 {
     font-size: 24px;
   }
