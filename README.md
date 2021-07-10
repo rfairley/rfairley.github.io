@@ -1,4 +1,4 @@
-# rfairley.github.io (https://robertfairley.ca)
+# rfairley.github.io
 
 This serves as a personal website to consolidate my experience and any projects I am working on - and also for me to practice web development. I improved the theme from my previous website, which looked a lot older and had some issues with the scripting behind it. 
 
