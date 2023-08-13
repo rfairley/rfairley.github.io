@@ -417,13 +417,6 @@ ul.project-box li h3 {
   color: #eeeeee;
 }
 
-/*====== Miscellaneous ======*/
-
-.twitter-box {
-  max-width: 600px;
-  margin: 32px auto 0 auto;
-}
-
 /*====== Media queries for responsiveness ======*/
 
 @media all and (min-width: 680px) {
